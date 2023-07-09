@@ -1,0 +1,30 @@
+{
+  "name": "qiita",
+  "version": "1.0.0",
+  "description": "qiita",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "ts": "./node_modules/.bin/ts-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newbee1939/qiita.git"
+  },
+  "author": "newbee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newbee1939/qiita/issues"
+  },
+  "homepage": "https://github.com/newbee1939/qiita#readme",
+  "dependencies": {
+    "@types/jest": "^29.4.0",
+    "axios": "^1.3.4",
+    "dotenv": "^16.0.3",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
+}
