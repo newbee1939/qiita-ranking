@@ -45,6 +45,7 @@ async function makeLikesRanking() {
           createdAt: article.created_at,
           updatedAt: article.updated_at,
           url: article.url,
+          userId: `@${article.user.id}`,
         };
       });
 
@@ -79,7 +80,7 @@ async function makeLikesRanking() {
 
 async function makeAndPatchArticle(likesRanking: any) {
   const articleInformation = {
-    title: "【保存版】Qiita歴代いいね数ランキング100",
+    title: "【保存版】Qiita歴代いいね数ランキング100【自動更新】",
     body: await makeArticleBody(likesRanking),
     tags: [
       { name: "TypeScript" },
@@ -120,6 +121,7 @@ async function makeArticleBody(likesRanking: any) {
           .replace("titleValue", rankingData.title)
           .replace("likeValue", rankingData.likesCount)
           .replace("urlValue", rankingData.url)
+          .replace("userIdValue", rankingData.userId)
           .replace("createdAtValue", formatDate(rankingData.createdAt))
           .replace("updatedAtValue", formatDate(rankingData.updatedAt))
       );

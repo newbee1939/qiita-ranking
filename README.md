@@ -14,14 +14,28 @@
 - npm run ts stocksRanking.ts
 - npm run ts likesRanking.ts
 
-## TODO
+## 機能追加等で別で記事を投稿してチェックしたい場合
 
-- 無料のバッチで自動更新にしたい
-- codespaces?
-- ユニットテスト
-- ディレクトリ構成等のリファクタリング
-- 機能追加
-- draft と本番で環境を分けて開発できるようにしたい
+以下のように実装を一時的に変える
 
-- 定期実行
-- ドラフトで動作確認
+1. private:true にする
+2. axios.post にする
+3. URL の最後の記事 ID を外す
+
+```typescript
+const articleInformation = {
+    title: "【保存版】Qiita歴代ストック数ランキング100",
+    private: true,
+    body: await makeArticleBody(stocksRanking),
+    tags: [
+      { name: "TypeScript" },
+      { name: "QiitaAPI" },
+      { name: "Qiita" },
+      { name: "JavaScript" },
+      { name: "初心者" },
+    ],
+  };
+
+try {
+await axios.post("https://qiita.com/api/v2/items", articleInformation, {
+```
