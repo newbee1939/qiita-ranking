@@ -1,0 +1,34 @@
+name: Update Qiita Ranking Articles
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * 1" # 週一回実行　
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: ./.tool-versions
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Update Stocks Ranking
+        env:
+          ACCESS_TOKEN_1: ${{ secrets.ACCESS_TOKEN_1 }}
+        run: npm run ts stocksRanking.ts
+
+      - name: Update Likes Ranking
+        env:
+          ACCESS_TOKEN_3: ${{ secrets.ACCESS_TOKEN_3 }}
+        run: npm run ts likesRanking.ts
