@@ -3,6 +3,11 @@
 - [【保存版】Qiita 歴代いいね数ランキング 100](https://qiita.com/newbee1939/items/48a37fcdc458603797de)
 - [【保存版】Qiita 歴代ストック数ランキング 100](https://qiita.com/newbee1939/items/2391cd66cd00048df7cb)
 
+## 環境構築
+
+1. cp .env.example .env
+2. npm ci
+
 ## document
 
 - Qiita API:https://qiita.com/api/v2/docs
