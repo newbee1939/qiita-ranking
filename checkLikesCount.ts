@@ -25,7 +25,7 @@ async function execute() {
 }
 
 // 500ストック以下の記事でいいね数が2000以上の記事がないことをチェックする
-// このチェックに通ったら、「500ストックより大きい」でlikesRankingの条件を絞ることができる
+// このチェックに通ったら、「500ストックより大きい」でlikesRankingの条件を絞ることができる（現時点でいいね数ランキングが100位の記事が2949いいねであるため）
 async function checkLikesCount(): Promise<boolean> {
   const createdAtRangeList = await makeCreatedAtRangeList();
   let apiCount = 0;
@@ -42,6 +42,9 @@ async function checkLikesCount(): Promise<boolean> {
 
     let pageNumber = 1;
     while (true) {
+      // NOTE: page(ページ数)の初期値は1、pageの最大値は100に設定されている。また、per_page(1ページあたりのアイテム数)の初期値は20、per_pageの最大値は100に設定されている
+      // つまり、指定した期間で取れるアイテムの最大値は1000ということである
+      // そのため、rangeをより小さくすれば1000に引っかかることは無いと思われる
       if (pageNumber > 100) {
         console.log(`${createdAtRange}ではpageNumberが100を超えました。。`); // TODO:100を超えたrangeの再処理も自動化したい
         over100PageCreatedAtRangelist.push(createdAtRange);
