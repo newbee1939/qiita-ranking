@@ -22,6 +22,7 @@
 ## check
 
 checkLikesCount.ts 実行することで 500 ストック以下の記事でいいね数が 2000 以上の記事が存在しているかどうかチェックできる。
+
 チェックが OK なら likesRanking.ts を実行できる。
 
 npm run ts checkLikesCount.ts
