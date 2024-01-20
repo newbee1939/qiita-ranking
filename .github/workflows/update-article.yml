@@ -18,7 +18,7 @@ jobs:
           node-version-file: ./.tool-versions
           cache: npm
 
-      - name: Install Dependencies
+      - name: Install NPM Dependencies
         run: npm ci
 
       - name: Update Stocks Ranking
