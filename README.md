@@ -8,7 +8,7 @@
 1. cp .env.example .env
 2. npm ci
 
-## document
+## docs
 
 - Qiita API:https://qiita.com/api/v2/docs
 - https://help.qiita.com/ja/articles/qiita-search-options
