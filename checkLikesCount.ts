@@ -17,7 +17,7 @@ execute();
 
 async function execute() {
   if (await checkLikesCount()) {
-    console.log("大丈夫そうですうう！！");
+    console.log("大丈夫そうです！！");
   }
   console.log(
     "500ストック以下の記事でいいね数が2000以上の記事が存在しています。。"
