@@ -105,7 +105,7 @@ async function makeAndPatchArticle(likesRanking: any) {
     console.log("更新が完了しました！");
   } catch (e) {
     console.log(e);
-    console.log("更新に失敗しました。。");
+    console.log("更新に失敗しました..");
   }
 }
 
