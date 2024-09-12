@@ -1,8 +1,6 @@
 name: Update Qiita Ranking Articles
 
 on:
-  schedule:
-    - cron: "0 0 * * 1" # 週一回実行　
   push:
     branches:
       - 'main'
