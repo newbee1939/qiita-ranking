@@ -24,6 +24,18 @@ jobs:
       - name: Install NPM Dependencies
         run: npm ci
 
+      # スケジュールトリガーのときだけ空コミットを実行
+      # コミットが一定期間ないとスケジュールが動かなくなるっぽいので..
+      - name: Make an empty commit to main (schedule only)
+        if: github.event_name == 'schedule'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "Trigger build"
+          git push origin main
+
       - name: Update Stocks Ranking
         env:
           ACCESS_TOKEN_1: ${{ secrets.ACCESS_TOKEN_1 }}
